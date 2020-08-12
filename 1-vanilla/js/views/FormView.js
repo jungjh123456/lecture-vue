@@ -23,7 +23,11 @@ FormView.bindEvents = function () {
 }
 
 FormView.onKeyup = function (e) {
+  const enter = 13 //enter키는 13 이다
   this.showResetBtn(this.inputEl.value.length)
+  if(e.keyCode !== enter) return
+  //검색 결과가 보인다. (formView는 검색결과를 보여주지 않아도 된다. mainController로 전달 해야한다.)
+  this.emit('@submit', {input: this.inputEl.value}) // mainController로 input의 value값을 준다.
 }
 
 export default FormView
