@@ -5,14 +5,14 @@ export default {
     { keyword: '검색기록0', date: '12.01' },
   ],
 
-  list() {
+  list() { //위에 꺼를 리턴 해준다.
     return Promise.resolve(this.data)
   },
   
   add(keyword = '') {
     keyword = keyword.trim()
     if (!keyword) return 
-    if (this.data.some(item => item.keyword === keyword)) {
+    if (this.data.some(item => item.keyword === keyword)) { //데이터 있는지 없는지 확인
       this.remove(keyword)
     }
 
